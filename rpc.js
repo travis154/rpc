@@ -24,9 +24,9 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', function(req,res){
-	var cmd = req.query.cmd;
-	var arg = req.query.arg;
+app.get('/:cmd/:arg', function(req,res){
+	var cmd = req.params.cmd;
+	var arg = req.params.arg;
 	if(arg){
 		arg = decodeURIComponent(arg);
 	}
